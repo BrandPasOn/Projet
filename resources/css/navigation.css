@@ -1,0 +1,195 @@
+/* Navigation */
+
+.navigation {
+    border-bottom-width: 1px;
+    border-color: #f3f4f6;
+    background-color: #ffffff;
+}
+
+.navigation-desktop-links {
+    display: flex;
+}
+
+.navigation-desktop-link {
+    display: none;
+    margin-left: 2rem;
+}
+
+.navigation-desktop {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 80rem;
+    margin: auto;
+}
+
+.navigation-desktop>div {
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+}
+
+.navigation-desktop-dropdown {
+    display: none;
+}
+
+.navigation-desktop-dropdown-button {
+    display: inline-flex;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    align-items: center;
+    border-radius: 0.375rem;
+    border-width: 1px;
+    border-color: transparent;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    line-height: 1rem;
+    color: #6b7280;
+    background-color: #ffffff;
+    transition-property: background-color, border-color, color, fill, stroke,
+        opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navigation-desktop-dropdown-button:hover {
+    color: #374151;
+}
+
+.navigation-desktop-dropdown-button span:last-child {
+    margin-left: 0.25rem
+}
+
+.navigation-desktop-dropdown-button span:last-child svg {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+}
+
+.navigation-hamburger {
+    display: flex;
+    margin-right: -0.5rem;
+    align-items: center;
+}
+
+.navigation-hamburger button {
+    display: inline-flex;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.375rem;
+    color: #9CA3AF;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+}
+
+.navigation-hamburger button:hover {
+    color: #6B7280;
+    background-color: #F3F4F6;
+}
+
+.navigation-mobile-hidden {
+    display: none;
+    opacity: 0;
+}
+
+.navigation-mobile-block {
+    display: block;
+    position: absolute;
+    width: 90%;
+    height: 100vh;
+    background-color: #f7f9fd;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.navigation-mobile div:first-child {
+    width: 80%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.navigation-mobile-options {
+    padding-bottom: 0.25rem;
+    padding-top: 1rem;
+    border-top-width: 1px;
+    border-color: #E5E7EB;
+}
+
+.navigation-mobile-options div:first-child {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.navigation-mobile-user {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation-mobile-user span:first-child {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    color: #1F2937;
+}
+
+.navigation-mobile-user span:last-child {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    color: #6B7280;
+}
+
+.navigation-mobile-links {
+    margin-top: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .navigation-desktop-link {
+        display: flex;
+        margin-left: 2.5rem;
+        margin-top: -1px;
+        margin-bottom: -1px;
+    }
+
+    .navigation-desktop {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .navigation-desktop-dropdown {
+        display: flex;
+        margin-left: 1.5rem;
+        align-items: center;
+        column-gap: 1rem;
+    }
+
+    .navigation-hamburger {
+        display: none;
+    }
+
+    .navigation-mobile {
+        display: none;
+    }
+}
+
+@media (min-width: 640px) {
+    .navigation-desktop {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* END Navigation */

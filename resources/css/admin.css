@@ -1,0 +1,114 @@
+/* Main admin */
+
+.main-admin{
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-view{
+    width: 100%;
+}
+
+
+@media (min-width: 640px) {
+    .main-admin {
+        flex-direction: row;
+    }
+}
+
+/* End Main admin */
+
+/* Admin nav */
+
+.admin-nav{
+    padding: 0 1rem;
+}
+
+.admin-nav select{
+    display: flex;
+    border-radius: 0.5rem;
+    margin: 1rem auto;
+    width: 50%;
+}
+
+.admin-users-list,
+.admin-contact-list
+{
+    width: 95%;
+    margin: auto;
+}
+
+.admin-users-list tr:nth-child(even),
+.admin-contact-list tr:nth-child(even){
+    background: #f3f4f6;
+}
+
+.admin-users-list td,
+.admin-contact-list td{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 1px;
+} 
+.admin-user-id,
+.admin-contact-id{
+    width: 5%;
+} 
+
+.admin-user-name{
+    width: 20%;
+} 
+.admin-user-email{
+    width: 30%;
+} 
+.admin-user-role,
+.admin-contact-option{
+    width: 10%;
+}
+
+.admin-users-list,
+.admin-contact-list {
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: 5px;
+    border: 1px solid #6B7280;
+}
+
+.admin-users-list>thead>tr:not(:last-child)>th,
+.admin-users-list>thead>tr:not(:last-child)>td,
+.admin-users-list>tbody>tr:not(:last-child)>th,
+.admin-users-list>tbody>tr:not(:last-child)>td,
+.admin-users-list>tfoot>tr:not(:last-child)>th,
+.admin-users-list>tfoot>tr:not(:last-child)>td,
+.admin-users-list>tr:not(:last-child)>td,
+.admin-users-list>tr:not(:last-child)>th,
+.admin-users-list>thead:not(:last-child),
+.admin-users-list>tbody:not(:last-child),
+.admin-users-list>tfoot:not(:last-child) {
+    border-bottom: 1px solid #6B7280;
+}
+
+.admin-user-paginate{
+    width: 95%;
+    margin: 1rem auto;
+}
+
+.admin-nav-desktop{
+    display: none;
+}
+
+@media (min-width: 640px){
+    .admin-nav select{
+        display: none;
+    }
+
+    .admin-users-list {
+        width: 60%;
+        margin: 3rem auto;
+    }
+
+    .admin-nav-desktop {
+        display: block;
+    }
+}
+/* END Admin nav */

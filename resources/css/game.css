@@ -1,0 +1,148 @@
+/* game */
+
+.game-component{
+    max-width: 95%;
+    margin: auto;
+}
+
+.game-picture{
+    width: 100%;
+}
+
+.game-picture img{
+    margin: auto;
+}
+
+.game-title{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.game-submit{
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 0;
+}
+
+.similar-games{
+    margin: 1.5rem 0;
+}
+
+.game-component h2{
+    font-size: 1.5rem;
+    margin: 0 0 0 1rem;
+}
+
+.similar-games .card-list{
+    justify-content: center;
+}
+
+.game-submit .add-game-button,
+.game-submit .remove-game-button {
+    padding: 0.25rem 1rem;
+}
+
+/* END game */
+
+/* Comment */
+
+.comment {
+    margin: 1.5rem 0;
+}
+
+.comment form label{
+    display: none;
+}
+
+.comment form {
+    margin-bottom: 2rem;
+}
+
+.comment form button{
+    padding: 0rem 0.5rem;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    margin: 0.5rem 0 0;
+    border-width: 0px;
+    border-radius: 4px;
+}
+
+.comment form button:hover{
+    background-color: #50545725;
+    transition: background-color 150ms ease-in-out;
+}
+
+.comment-card{
+    background-color: #f3f4f4;
+    min-height: 5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.comment-card h4{
+    text-align: end;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.comment-list{
+    display: flex;
+    flex-direction: column;
+    row-gap: .75rem;
+}
+
+.edit-comment{
+    text-align: end;
+}
+
+.edit-comment .edit-comment-button-send,
+.add-game-button {
+    padding: 0rem 0.5rem;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    margin: 0.5rem 0 0;
+    border-width: 0px;
+    border-radius: 4px;
+    background-color: #c8d9fe;
+}
+
+.edit-comment .edit-comment-button-send:hover,
+.add-game-button:hover {
+    background-color: #8ea5d9;
+    transition: background-color 250ms ease-in-out;
+}
+
+.edit-comment .edit-comment-button-cancel,
+.remove-game-button {
+    padding: 0rem 0.5rem;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    margin: 0.5rem 0 0;
+    border-width: 0px;
+    border-radius: 4px;
+    background-color: #e68a8a;
+}
+
+.edit-comment .edit-comment-button-cancel:hover,
+.remove-game-button:hover {
+    background-color: #c75454;
+    transition: background-color 250ms ease-in-out;
+}
+
+.comment .comment-card form{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.comment-error{
+    font-size: .75rem;
+    color:red;
+}
+
+@media (min-width: 1024px) {
+
+    .comment{
+        width: 60%;
+    }
+
+}
+
+/* End Comment */

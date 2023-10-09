@@ -1,0 +1,24 @@
+#error-page{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+    text-align: center;
+}
+
+#error-page h1{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+@media (min-width: 640px) {
+
+    #error-page h1 {
+        font-size: 3rem;
+        font-weight: 600;
+    }
+
+    #error-page p {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,107 @@
+/* Auth */
+
+.form-password-text {
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.25rem;
+    color: #4b5563;
+}
+
+.form-password-button {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: flex-end;
+}
+
+.login-remember {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-remember label {
+    display: inline-flex;
+    align-items: center;
+}
+
+.login-remember label input {
+    border-radius: 0.25rem;
+    border-color: #d1d5db;
+    color: #4f46e5;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.login-remember label span {
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.25rem;
+    color: #4b5563;
+}
+
+.login-submission {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.login-submission button {
+    margin-left: 0.75rem;
+}
+
+.register-submission {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.register-submission a {
+    border-radius: 0.375rem;
+    font-size: 0.8rem;
+    line-height: 1.25rem;
+    color: #4b5563;
+    text-decoration: underline;
+}
+
+.register-submission a:hover {
+    color: #111827;
+}
+
+.already-registered{
+    border-radius: 0.375rem;
+    font-size: 0.8rem;
+    line-height: 1.25rem;
+    color: #4B5563;
+    text-decoration: underline;
+}
+
+.already-registered:hover {
+    color: #111827;
+}
+
+.login-remember label span{
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.25rem;
+    color: #4B5563;
+}
+
+.login-password{
+    margin-top: 1rem;
+}
+
+.login-password .login-error,
+.login-email .login-error {
+    margin-top: 0.5rem;
+}
+
+.register-errors {
+    margin-top: 0.5rem;
+}
+
+.register-submission button {
+    margin-left: 1rem;
+}
+
+/* END Auth */

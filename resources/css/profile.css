@@ -1,0 +1,107 @@
+/* Library */
+
+#library{
+    display: flex;
+    flex-direction: column;
+}
+
+.disabled-option{
+    background-color: #eeeeee;
+}
+
+.mobile-user-game-nav{
+    text-align: center;
+}
+
+.desktop-user-game-nav{
+    display: none;
+}
+
+.label-game-select{
+    display: none;
+}
+
+@media (min-width: 640px) {
+
+    .desktop-user-game-nav {
+        display: block;
+    }
+
+    .mobile-user-game-nav {
+        display: none;
+    }
+
+    #library {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1024px) {
+
+
+}
+
+
+/* End Library */
+
+/* Wishlist */
+
+#wishlist .wished-game{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    border-radius: 1rem;
+}
+
+#wishlist .wished-game:nth-child(even){
+    background-color: #eeeeee;
+}
+
+#wishlist .wished-game:nth-child(odd){
+    background-color: #fcfcfc;
+}
+
+#wishlist ul{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+#wishlist .wished-game h3{
+    align-self: center;
+    padding-left: 1rem;
+    font-size: 1.1rem;
+}
+
+#wishlist .wished-game h3:hover{
+    color: blueviolet;
+    text-decoration: underline;
+}
+
+#wishlist .wished-game img{
+    width: 20%;
+    border-radius: 1rem 0 0 1rem;
+}
+
+@media (min-width: 1024px){
+
+    #wishlist .wished-game {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1280px){
+
+    #wishlist .wished-game {
+        width: 40%;
+    }
+
+    #wishlist ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 1rem;
+    }
+}
+
+/* End Wishlist */
