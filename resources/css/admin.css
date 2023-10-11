@@ -173,6 +173,14 @@
     display: none;
 }
 
+.see-contact{
+    width: 80%;
+    margin: auto;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.05);
+}
+
 @media (min-width: 640px){
     .admin-nav select{
         display: none;

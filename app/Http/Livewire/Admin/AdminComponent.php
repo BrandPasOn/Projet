@@ -42,10 +42,10 @@ class AdminComponent extends Component
     {
         switch ($this->admin_nav) {
             case 'users-list':
-                $this->users = User::where('id', '<>', Auth::user()->id)->paginate(5);
+                $this->users = User::where('id', '<>', Auth::user()->id)->paginate(10);
                 break;
             case 'contact-list':
-                $this->contacts = Contact::paginate(5);
+                $this->contacts = Contact::paginate(10);
                 break;
             default:
                 if (in_array($this->selectDays, [30, 14, 7])) {
@@ -61,6 +61,7 @@ class AdminComponent extends Component
 
     public function setAdminNav($tab)
     {
+        $this->see_contact = null;
         $this->admin_nav = $tab;
         // reset paginate
         $this->resetPage();

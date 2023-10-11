@@ -92,13 +92,16 @@
     width: 90%;
 }
 
-.popular-games-title{
+.popular-games-title,
+.random-games-title {
     text-align: center;
     font-size: 1.5rem;
     margin: 1rem 0 ;
 }
 
-.home-popular-games .card-list{
+.home-popular-games .card-list,
+.home-random-games .card-list
+{
     justify-content: center;
 }
 

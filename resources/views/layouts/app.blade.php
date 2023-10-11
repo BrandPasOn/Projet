@@ -40,14 +40,7 @@
         @include('layouts.footer')
     </footer>
     @livewireScripts
-    <script>
-        window.addEventListener('urlChanged', () => {
-            console.log('coucou')
-        })
-        Livewire.on('urlChanged', function(url) {
-            window.history.pushState({}, '', url);
-        });
-    </script>
+
 
 </body>
 

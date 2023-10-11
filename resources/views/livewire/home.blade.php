@@ -47,9 +47,41 @@
         </div>
 
         <section class="home-popular-games">
-            <h2 class="popular-games-title">Popular Games</h2>
+            <h2 class="random-games-title">Popular Games</h2>
             <div class="card-list home-card-list">
                 @foreach ($mostPopularGames as $game)
+                    <article>
+                        @if (is_array($game->slug))
+                            <a href="{{ route('show.game', ['slug' => $game->slug[0]]) }}">
+                                @if (is_null($game->cover))
+                                    <img src="{{ asset('image/default-game-picture.jpg') }}" alt="Default cover">
+                                @else
+                                    <img src="{{ $game->cover->getUrl('thumb', true) }}" alt="Cover of {{ $game->name }}">
+                                @endif
+                                <h3>{{ $game->name }}</h3>
+                            </a>
+                        @else
+                            <a href="{{ route('show.game', ['slug' => $game->slug]) }}">
+                                @if (is_null($game->cover))
+                                    <img src="{{ asset('image/default-game-picture.jpg') }}" alt="Default cover">
+                                @else
+                                    <img src="{{ $game->cover->getUrl('thumb', true) }}" alt="Cover of {{ $game->name }}">
+                                @endif
+                                <h3>{{ $game->name }}</h3>
+                            </a>
+                        @endif
+
+
+                    </article>
+                @endforeach
+            </div>
+        </section>
+
+        
+        <section class="home-random-games">
+            <h2 class="random-games-title">Games</h2>
+            <div class="card-list home-card-list">
+                @foreach ($randomGames as $game)
                     <article>
                         @if (is_array($game->slug))
                             <a href="{{ route('show.game', ['slug' => $game->slug[0]]) }}">

@@ -11,7 +11,7 @@
                 <td class="admin-contact-id">{{ $contact->id }}</td>
                 <td class="admin-contact-email">{{ $contact->email, 5 }}</td>
                 <td class="admin-contact-title">{{ $contact->title, 5 }}</td>
-                <td wire:click.prenvent="seeContact({{ $contact->id }})" x-on:click.prevent="$dispatch('open-modal', 'seeContact')" class="admin-contact-option">See</td>
+                <td x-on:click.prevent="$dispatch('open-modal', 'seeContact')" wire:click.prenvent="seeContact({{ $contact->id }})" class="admin-contact-option">See</td>
             </tr>
         @endforeach
     </tbody>
@@ -22,15 +22,10 @@
 </div>
 
 @if (!is_null($see_contact))
-    <x-modal name="seeContact">
-        <div wire:loading>
-            Loading ...
-        </div>
-        <div wire:loading.remove>
-            <h3>{{ $see_contact->title }}</h3>
-            <p>{{ $see_contact->content }}</p>
+    <div class="see-contact">
+        <h3>Title : {{ $see_contact->title }}</h3>
 
-            <x-validation-button x-on:click="$dispatch('close')">{{ __('Close') }}</x-validation-button>
-        </div>
-    </x-modal>
+        <p>Content :</p>
+        <p>{{ $see_contact->content }}</p>
+    </div>
 @endif

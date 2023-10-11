@@ -19,6 +19,7 @@ class HomeComponent extends Component
     use CategoriesNav;
 
     public $mostPopularGames;
+    public $randomGames;
 
     public $search;
     public $game_searched;
@@ -43,12 +44,23 @@ class HomeComponent extends Component
         $this->mostPopularGames = Game::with(['cover' => ['*']])
             ->whereIn('id', $mostPlayedGames_id)
             ->get();
-
+        
         if ($this->search != "") {
             $this->game_searched = Game::whereLike('name', $this->search, false)->get();
         } else {
             $this->game_searched = null;
         }
+
+        // get randoms id
+        $randomIds = [];
+        for ($i = 0; $i < 4; $i++) {
+            $randomIds[] = rand(1, 271379);
+        }
+
+        // get games with randoms id
+        $this->randomGames = Game::with(['cover' => ['*']])
+            ->whereIn('id', $randomIds)
+            ->get();
 
         return view('livewire.home');
     }

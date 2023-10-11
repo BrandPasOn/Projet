@@ -33,8 +33,13 @@
                     </form>
                 @else
                     <p>{{ $c->comment }}</p>
-                    @if (Auth::user() && $c->user_id === Auth::user()->id)
+                    @if ((Auth::user() && $c->user_id === Auth::user()->id) || (Auth::user() && Auth::user()->role === 2))
                         <div class="edit-comment">
+                            @if ($is_deleteable && $comment->id === $c->id)
+                                <button class="delete-comment-button-send" wire:click.prevent="comfirmDeleteComment({{ $c->id }})">Comfirm Delete</button>
+                            @else
+                                <button class="delete-comment-button-send" wire:click.prevent="deleteComment({{ $c->id }})">Delete</button>
+                            @endif
                             <button class="edit-comment-button-send"
                                 wire:click.prevent="editComment({{ $c->id }})">Edit</button>
                         </div>
@@ -44,4 +49,15 @@
             </div>
         @endforeach
     </div>
+    @if ($is_deleteable)
+        <x-modal name="deleteComment">
+
+            <div>
+
+
+                <x-validation-button x-on:click="$dispatch('close')">{{ __('Close') }}</x-validation-button>
+            </div>
+        </x-modal>
+    @endif
+
 </div>

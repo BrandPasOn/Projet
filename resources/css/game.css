@@ -111,7 +111,8 @@
 }
 
 .edit-comment .edit-comment-button-cancel,
-.remove-game-button {
+.remove-game-button,
+.delete-comment-button-send {
     padding: 0rem 0.5rem;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
     margin: 0.5rem 0 0;
@@ -121,7 +122,8 @@
 }
 
 .edit-comment .edit-comment-button-cancel:hover,
-.remove-game-button:hover {
+.remove-game-button:hover,
+.delete-comment-button-send:hover {
     background-color: #c75454;
     transition: background-color 250ms ease-in-out;
 }
