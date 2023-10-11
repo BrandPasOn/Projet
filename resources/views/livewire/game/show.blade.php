@@ -1,8 +1,7 @@
 <section class="game-component">
     <div class="game-picture">
 
-        <img src="{{ $game->cover ? $game->cover->getUrl('cover_big') : asset('image/default-game-picture.jpg') }}"
-            alt="Cover of {{ $game->name }}">
+        <img src="{{ $game->cover ? $game->cover->getUrl('cover_big') : asset('image/default-game-picture.jpg') }}" alt="Cover of {{ $game->name }}">
     </div>
     <h1 class="game-title">{{ $game->name }}</h1>
 
@@ -40,8 +39,7 @@
                                 @if (is_null($game->cover))
                                     <img src="{{ asset('image/default-game-picture.jpg') }}" alt="Default cover">
                                 @else
-                                    <img src="{{ $game->cover->getUrl('cover_big') }}"
-                                        alt="Cover of {{ $game->name }}">
+                                    <img src="{{ $game->cover->getUrl('cover_big') }}" alt="Cover of {{ $game->name }}">
                                 @endif
                                 <h3>{{ $game->name }}</h3>
                             </a>
@@ -50,15 +48,11 @@
                                 @if (is_null($game->cover))
                                     <img src="{{ asset('image/default-game-picture.jpg') }}" alt="Default cover">
                                 @else
-                                    <img src="{{ $game->cover->getUrl('cover_big') }}"
-                                        alt="Cover of {{ $game->name }}">
+                                    <img src="{{ $game->cover->getUrl('cover_big') }}" alt="Cover of {{ $game->name }}">
                                 @endif
                                 <h3>{{ $game->name }}</h3>
                             </a>
                         @endif
-
-
-                        </a>
                     </article>
                 @endforeach
             </div>

@@ -6,8 +6,7 @@
                 <ul class="dropdown-list">
                     @foreach ($genre as $g)
                         <li class="home-aside-category-li">
-                            <a
-                                href="{{ route('categorypage', ['category' => 'genre', 'slug' => $g->slug]) }}">{{ $g->name }}</a>
+                            <a href="{{ route('categorypage', ['category' => 'genre', 'slug' => $g->slug]) }}">{{ $g->name }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -17,8 +16,7 @@
                 <ul class="dropdown-list">
                     @foreach ($theme as $t)
                         <li class="home-aside-category-li">
-                            <a
-                                href="{{ route('categorypage', ['category' => 'theme', 'slug' => $t->slug]) }}">{{ $t->name }}</a>
+                            <a href="{{ route('categorypage', ['category' => 'theme', 'slug' => $t->slug]) }}">{{ $t->name }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -28,21 +26,17 @@
                 <ul class="dropdown-list-game-mode">
                     @foreach ($mode as $m)
                         <li class="home-aside-category-li">
-                            <a
-                                href="{{ route('categorypage', ['category' => 'game-mode', 'slug' => $m->slug]) }}">{{ $m->name }}</a>
+                            <a href="{{ route('categorypage', ['category' => 'game-mode', 'slug' => $m->slug]) }}">{{ $m->name }}</a>
                         </li>
                     @endforeach
                 </ul>
             </div>
 
         </div>
-        <div wire:loading>
-            Loading ...
-        </div>
-        <section wire:loading.remove class="category-games-list">
+        
+        <section class="category-games-list">
             <label for="search" style="display: none"></label>
-            <input id="search" name="search" type="search" class="text-input category-games-search" wire:model="search"
-                placeholder="Search games by name...">
+            <input id="search" name="search" type="search" class="text-input category-games-search" wire:model="search" placeholder="Search games by name...">
             <div class="card-list">
                 @foreach ($games as $game)
                     <article>
@@ -51,8 +45,7 @@
                                 @if (is_null($game->cover))
                                     <img src="{{ asset('image/default-game-picture.jpg') }}" alt="Default cover">
                                 @else
-                                    <img src="{{ $game->cover->getUrl('thumb', true) }}"
-                                        alt="Cover of {{ $game->name }}">
+                                    <img src="{{ $game->cover->getUrl('thumb', true) }}" alt="Cover of {{ $game->name }}">
                                 @endif
                                 <h3>{{ $game->name }}</h3>
                             </a>
@@ -61,8 +54,7 @@
                                 @if (is_null($game->cover))
                                     <img src="{{ asset('image/default-game-picture.jpg') }}" alt="Default cover">
                                 @else
-                                    <img src="{{ $game->cover->getUrl('thumb', true) }}"
-                                        alt="Cover of {{ $game->name }}">
+                                    <img src="{{ $game->cover->getUrl('thumb', true) }}" alt="Cover of {{ $game->name }}">
                                 @endif
                                 <h3>{{ $game->name }}</h3>
                             </a>

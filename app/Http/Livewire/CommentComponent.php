@@ -33,21 +33,19 @@ class CommentComponent extends Component
         'comment.comment.max' => 'The :attribute field cannot exceed 500 characters.',
     ];
 
-    public function mount()
-    {
-    }
-
     public function render()
     {
         $this->comments = Comment::where('game_id', $this->game_selected_id)->get();
-        
+
         return view('livewire.comment.show');
     }
 
     public function addComment()
     {
         $this->validate(
-            ['form_comment' => 'required|string|max:500'],
+            [
+                'form_comment' => 'required|string|max:500',
+            ],
             [
                 'form_comment.required' => 'The :attribute cannot be empty.',
                 'form_comment.string' => 'The :attribute format is not valid.',
@@ -58,7 +56,7 @@ class CommentComponent extends Component
         $comment = new Comment();
         $comment->user_id = $this->user->id;
         $comment->game_id = $this->game_selected_id;
-        $comment->comment = $this->form_comment;
+        $comment->comment = strip_tags($this->form_comment);
 
         $comment->save();
 
@@ -72,20 +70,20 @@ class CommentComponent extends Component
     {
         $comment = Comment::find($id);
 
-        // Vérifie si le commentaire existe et si l'utilisateur connecté est le propriétaire du commentaire
+        // verify if comment exist and if the user is the owner
         if ($comment && $comment->user_id === $this->user->id) {
-            // L'utilisateur connecté est le propriétaire du commentaire, vous pouvez maintenant autoriser l'édition.
             $this->is_editable = true;
             $this->comment = Comment::find($id);
         } else {
             $this->dispatchBrowserEvent('alert', ['message' => 'You are not authorized to edit this comment !', 'type' => 'error']);
-
         }
     }
 
     public function updateComment()
     {
         $this->validate();
+
+        $this->comment->comment = strip_tags($this->comment->comment);
 
         $this->comment->save();
 

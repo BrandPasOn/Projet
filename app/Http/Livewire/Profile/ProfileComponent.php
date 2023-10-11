@@ -13,6 +13,8 @@ class ProfileComponent extends Component
 {
     public User $user;
 
+    public $oldUser;
+
     // delete user
     public $password;
 
@@ -21,12 +23,19 @@ class ProfileComponent extends Component
     public $new_password;
     public $confirm_password;
 
+
     public function rules()
     {
         return [
             'user.name' => 'required|string|max:255|min:3',
             'user.email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')->ignore($this->user->id)],
         ];
+    }
+
+    public function mount()
+    {
+        $this->oldUser = $this->user->name;
+        // dd($this->oldUser);
     }
 
     public function render()
@@ -37,12 +46,22 @@ class ProfileComponent extends Component
     public function update()
     {
         $validatedData = $this->validate();
+        
+        if($validatedData['user']['name'] != $this->oldUser){
+            
+            $this->user->fill($validatedData);
+    
+            $this->user->save();
 
-        $this->user->fill($validatedData);
-
-        $this->user->save();
-
-        $this->dispatchBrowserEvent('alert', ['message' => 'Your profile information has been updated', 'type' => 'success']);
+            $this->oldUser = $validatedData['user']['name'];
+    
+            $this->dispatchBrowserEvent('alert', ['message' => 'Your profile information has been updated', 'type' => 'success']);
+    
+            $this->dispatchBrowserEvent('username', ['username' => $validatedData['user']['name']]);
+        } else {
+            $this->resetValidation();
+        }
+        
 
     }
 
@@ -86,4 +105,5 @@ class ProfileComponent extends Component
 
         return redirect()->to('/');
     }
+
 }

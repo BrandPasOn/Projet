@@ -12,8 +12,8 @@ class ContactComponent extends Component
 
     public $rules = [
         'email' => 'required|string|max:255',
-        'title' => 'required|string|min:5|max:255',
-        'content' => 'required|string|min:5|max:500',
+        'title' => 'required|string|min:3|max:255',
+        'content' => 'required|string|min:3|max:500',
     ];
     
     public function render()

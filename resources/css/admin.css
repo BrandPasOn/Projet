@@ -9,10 +9,85 @@
     width: 100%;
 }
 
+#new-user,
+#new-contact,
+#new-comments,
+#new-newsletter{
+    background-color: gainsboro;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    width: 45%;
+}
+
+#new-user h3,
+#new-contact h3,
+#new-comments h3,
+#new-newsletter h3{
+    display: flex;
+    flex-direction: column;
+}
+
+#dashboard{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    column-gap: 1rem;
+    padding: 1rem;
+}
+
+#dashboard h2{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#dashboard-statistique{
+    margin: 1rem 0;
+    display: flex;
+    column-gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+}
 
 @media (min-width: 640px) {
-    .main-admin {
-        flex-direction: row;
+    /* .main-admin { */
+        /* flex-direction: row; */
+    /* } */
+
+    .admin-nav{
+        width: 100%;
+    }
+
+    .admin-nav ul{
+        display: flex;
+        justify-content: center;
+        column-gap: .5rem;
+        border-radius: 0.5rem;
+        margin: 1rem 0;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .admin-nav ul li{
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+
+    .admin-nav ul li:hover{
+        background-color:#f3f4f6;
+    }
+
+    /* .admin-view .admin-users-list, */
+    /* .admin-view .admin-contact-list{ */
+        /* width: 60%; */
+    /* } */
+
+    #new-user,
+    #new-contact,
+    #new-comments,
+    #new-newsletter {
+        width: fit-content;
     }
 }
 
@@ -64,6 +139,7 @@
 .admin-user-role,
 .admin-contact-option{
     width: 10%;
+    cursor: pointer;
 }
 
 .admin-users-list,
@@ -89,8 +165,8 @@
 }
 
 .admin-user-paginate{
-    width: 95%;
-    margin: 1rem auto;
+    width: 60%;
+    margin: 3rem auto;
 }
 
 .admin-nav-desktop{
@@ -103,12 +179,15 @@
     }
 
     .admin-users-list {
-        width: 60%;
-        margin: 3rem auto;
+        width: 95%;
     }
 
     .admin-nav-desktop {
         display: block;
+    }
+    
+    .admin-user-paginate{
+        width: 95%;
     }
 }
 /* END Admin nav */

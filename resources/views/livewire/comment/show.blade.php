@@ -7,7 +7,7 @@
     @endif
     <form wire:submit.prevent="addComment">
         <label for="form_comment">Comment</label>
-        <x-textarea-input id="form_comment" wire:model="form_comment" name="form_comment" id="comment-form" class="auth-input" required />
+        <x-textarea-input id="form_comment" wire:model="form_comment" name="form_comment" class="auth-input" required />
         @error('form_comment')
             <span class="text-danger error">{{ $message }}</span>
         @enderror

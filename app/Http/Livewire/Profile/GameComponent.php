@@ -28,10 +28,7 @@ class GameComponent extends Component
             $this->loadGame();
         }
 
-        $isFav = UserGame::select('is_favorite')
-            ->where('game_id', $this->game_id_selected)
-            ->first();
-        $this->verifyIsFav = $isFav->is_favorite;
+        
     }
 
     public function render()
@@ -41,6 +38,7 @@ class GameComponent extends Component
             $this->loadGame();
         }
 
+
         return view('livewire.profile.show-game', ['game' => $this->game]);
     }
 
@@ -48,10 +46,16 @@ class GameComponent extends Component
     {
         $this->game = Game::where('id', $this->game_id_selected)
             ->with(['genres' => ['*'], 'cover' => ['*']])
+            ->orderBy('name')
             ->first();
+
+        $isFav = UserGame::select('is_favorite')
+        ->where('game_id', $this->game_id_selected)
+            ->first();
+        $this->verifyIsFav = $isFav->is_favorite;
     }
 
-    public function addToFav($game_id)
+    public function addToFav($game_id, $isFav)
     {
         $verify = UserGame::where('game_id', $game_id)
             ->where('user_id', $this->user->id)
@@ -70,7 +74,12 @@ class GameComponent extends Component
             } else {
                 $this->dispatchBrowserEvent('alert', ['message' => $this->game->name . ' has been added to your fav', 'type' => 'success']);
             }
-            return redirect()->route('profile.library');
+
+            $this->dispatchBrowserEvent('loadLibraryGames', ['game' => $game_id, 'isFav' => $isFav]);
+            $this->loadGame();
+            // return redirect()->route('profile.library');
         }
     }
+
+    
 }

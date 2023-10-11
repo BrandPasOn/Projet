@@ -3,7 +3,7 @@
         <select id="admin-nav-mobile" name="admin-nav" wire:model="admin_nav">
             <option selected value="dashboard">Dashboard</option>
             <option value="users-list">Users List</option>
-            <option value="contact">Contact List</option>
+            <option value="contact-list">Contact List</option>
         </select>
 
         <ul class="admin-nav-desktop">
@@ -15,10 +15,7 @@
 
 
     <section class="admin-view">
-        <div wire:loading>
-            Loading ...
-        </div>
-        <div wire:loading.remove>
+        <div wire:target="setAdminNav">
             @include('livewire.admin.page.' . $admin_nav)
         </div>
 

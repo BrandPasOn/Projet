@@ -5,6 +5,20 @@
     flex-direction: column;
 }
 
+#empty-library{
+    text-align: center;
+    margin: 2rem auto;
+}
+
+#empty-library h2{
+    font-size: 1.5rem;
+}
+
+#library .user-fav,
+#library .user-game {
+    display: none;
+}
+
 .disabled-option{
     background-color: #eeeeee;
 }
@@ -13,17 +27,14 @@
     text-align: center;
 }
 
-.desktop-user-game-nav{
-    display: none;
-}
-
 .label-game-select{
     display: none;
 }
 
 @media (min-width: 640px) {
 
-    .desktop-user-game-nav {
+    #library .user-fav,
+    #library .user-game {
         display: block;
     }
 
@@ -105,3 +116,211 @@
 }
 
 /* End Wishlist */
+
+/* Game */
+
+#game h2{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#game h2:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#game img{
+    margin: auto;
+    width: 40%;
+}
+
+
+#game .fav{
+    text-align: center;
+    margin: 1rem 0;
+}
+
+#note{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    column-gap: 1rem;
+    flex-wrap: wrap;
+}
+
+
+@media (min-width: 640px) {
+
+    .user-game-nav{
+        width: 20%;
+        height: 80vh;
+        background-color: #fcfcfc;
+        padding: 0.5rem;
+    }
+
+    #show-game{
+        width: 80%;
+    }
+
+    #game{
+        width: 100%;
+    }
+
+    #game img{
+        width: unset;
+        max-height: 20rem;
+    }
+
+    .user-game-nav{
+        overflow: auto;
+    }
+
+    .user-game-nav .nav-title{
+        font-weight: 600;
+    }
+
+    .user-fav h3,
+    .user-game h3{
+        cursor: default;
+    }
+
+    .user-fav p,
+    .user-game p{
+        cursor: pointer;
+        overflow: hidden;
+        max-height: 1.5rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .user-fav{
+        margin-bottom: .5rem;
+    }
+
+    .user-fav p:hover,
+    .user-game p:hover{
+        padding-left: 0.2rem;
+        background-color: #f5f5f5;
+    }
+}
+
+/* End Game */
+
+/* Profile info */
+
+.profile-title{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #1F2937;
+}
+
+.profile-content{
+    padding: 3rem 0;
+}
+
+.profile-content > div{
+    margin-top: 1.5rem;
+    max-width: 80rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.profile-content > div .profile-view{
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.profile-content > div .profile-view > div{
+    max-width: 36rem
+}
+
+#delete-user header{
+    margin-bottom: 1rem;
+}
+
+#update-profile-info header h2,
+#update-password header h2,
+#delete-user header h2 {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+    color: #111827;
+}
+
+#update-profile-info header p,
+#update-password header p {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #4B5563;
+}
+
+#update-profile-info form,
+#update-password form {
+    margin-top: 1.5rem;
+}
+
+#update-profile-info form .profile-error{
+    margin-top: 0.5rem;
+}
+#update-profile-info form .update-info-submit,
+#update-password form .update-info-submit {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.update-info-submit,
+.update-info-email,
+.update-password-inputs,
+.update-password-submit {
+    margin-top: 1rem;
+}
+
+#delete-user form{
+    padding: 1.5rem
+}
+
+#delete-user form h2{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+    color: #111827;
+}
+
+#delete-user form div{
+    margin-top: 1.5rem
+}
+
+#delete-user form div:last-child{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#delete-user form div:last-child button:last-child{
+    margin-left: 0.75rem
+}
+
+@media (min-width: 640px) {
+    .profile-content > div {
+        padding: 0 1.5rem;
+    }
+
+    .profile-content>div .profile-view {
+        padding: 2rem;
+        border-radius: 0.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .profile-content > div {
+        padding: 0 2rem;
+    }
+}
+
+/* End Profile info */

@@ -1,6 +1,10 @@
-<x-guest-layout>
+@extends('layouts.guest')
 
-    <form method="POST" action="{{ route('login') }}">
+@section('title', 'Login')
+
+@section('content')
+
+<form method="POST" action="{{ route('login') }}">
         @csrf
 
         <!-- Email Address -->
@@ -23,19 +27,19 @@
         <div class="login-remember">
             <label for="remember_me">
                 <input id="remember_me" type="checkbox" name="remember">
-                <span>{{ __('Remember me') }}</span>
+                <span>Remember me</span>
             </label>
         </div>
 
         <div class="login-submission">
             <a class="already-registered"
                 href="{{ route('register') }}">
-                {{ __('You already have an account ? Register here') }}
+                You already have an account ? Register here
             </a>
 
             <x-primary-button>
-                {{ __('Log in') }}
+                Log in
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+@endsection()

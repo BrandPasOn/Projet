@@ -150,7 +150,7 @@
 }
 
 .category-games-list .category-games-search{
-    width: 20%;
+    width: 50%;
     margin-bottom: 1rem;
 }
 /*  */
@@ -277,6 +277,10 @@
         height: 80%;
     }
 
+    .category-games-list .category-games-search {
+        width: 20%;
+        margin-bottom: 1rem;
+    }
 }
 
 /* END Home component */

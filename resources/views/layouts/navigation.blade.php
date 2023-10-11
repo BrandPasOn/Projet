@@ -10,9 +10,9 @@
                         {{ __('Home') }}
                     </x-nav-link>
                 </div>
-                @if(Auth::user() && Auth::user()->isAdmin())
+                @if (Auth::user() && Auth::user()->isAdmin())
                     <div class="navigation-desktop-link">
-                        <x-nav-link :href="route('admin.index')" >
+                        <x-nav-link :href="route('admin.index')">
                             {{ __('Admin') }}
                         </x-nav-link>
                     </div>
@@ -23,12 +23,22 @@
             <div class="navigation-desktop-dropdown">
                 @if (Auth::user())
                     <x-dropdown>
-                        @livewire('username-component')
-                        
+                        <x-slot name="trigger">
+                            <button class="navigation-desktop-dropdown-button">
+                                <span id="desktop-username">{{ Auth::user()->name }}</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </x-slot>
 
                         <x-slot name="content">
                             <x-dropdown-link :href="route('profile')">
-                                {{ __('Profile') }}
+                                {{ __('Profile information') }}
                             </x-dropdown-link>
 
                             <x-dropdown-link :href="route('profile.library')">
@@ -72,36 +82,41 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{ 'navigation-mobile-block': open, 'navigation-mobile-hidden': !open }" class="navigation-mobile-hidden navigation-mobile">
+    <div :class="{ 'navigation-mobile-block': open, 'navigation-mobile-hidden': !open }"
+        class="navigation-mobile-hidden navigation-mobile">
         <div>
             <x-responsive-nav-link :href="route('homepage')" :active="request()->routeIs('homepage')">
                 {{ __('Home') }}
             </x-responsive-nav-link>
 
-            @if(Auth::user() && Auth::user()->isAdmin())
+            @if (Auth::user() && Auth::user()->isAdmin())
                 <x-responsive-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
                     {{ __('Admin') }}
                 </x-responsive-nav-link>
             @endif
-            
-            @if(Auth::guest())
+
+            @if (Auth::guest())
                 <x-responsive-nav-link :href="route('login')">
-                    {{ __('login') }}
+                    {{ __('Login') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('register')">
+                    {{ __('Register') }}
                 </x-responsive-nav-link>
             @endif
         </div>
 
         @if (Auth::user())
-        <!-- Responsive Settings Options -->
+            <!-- Responsive Settings Options -->
             <div class="navigation-mobile-options">
                 <div class="navigation-mobile-user">
-                    <span>{{ Auth::user()->name }}</span>
+                    <span id="mobile-username">{{ Auth::user()->name }}</span>
                     <span>{{ Auth::user()->email }}</span>
                 </div>
 
                 <div class="navigation-mobile-links">
                     <x-responsive-nav-link :href="route('profile')">
-                        {{ __('Profile') }}
+                        {{ __('Profile information') }}
                     </x-responsive-nav-link>
 
                     <x-responsive-nav-link :href="route('profile.library')">
@@ -123,7 +138,6 @@
                     </form>
                 </div>
             </div>
-    
         @endif
     </div>
 </nav>

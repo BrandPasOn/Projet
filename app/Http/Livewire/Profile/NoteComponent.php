@@ -46,11 +46,10 @@ class NoteComponent extends Component
         );
 
         if($game_id === $this->game_id_selected){
-            $this->user_game->note = $this->form_note;
+            $this->user_game->note = strip_tags($this->form_note);
             $this->user_game->save();
         }
 
-        // $this->game = Game::where('id', $this->game_id_selected)->with(['genres' => ['*'], 'cover' => ['*']])->first();
     }
 
     public function submitForm($game_id)

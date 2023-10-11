@@ -23,8 +23,6 @@ class RegisteredUserController extends Controller
     {
         if (url()->previous() != url()->current()) {
             Session::put('beforeregister', url()->previous());
-        } elseif (url()->previous() == url()->current()) {
-            Session::put('beforeregister', redirect()->intended(RouteServiceProvider::HOME));
         }
         return view('auth.register');
     }
@@ -37,7 +35,7 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string','max:255', 'unique:' . User::class],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);

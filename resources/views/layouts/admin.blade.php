@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Meats | @yield('title')</title>
 
     <!-- Scripts -->
     @vite(['resources/css/admin.css','resources/css/layout.css','resources/css/navigation.css','resources/css/auth.css','resources/css/home-components.css', 'resources/css/app.css', 'resources/js/app.js', 'resources/js/alert.js'])

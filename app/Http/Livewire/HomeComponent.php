@@ -44,10 +44,14 @@ class HomeComponent extends Component
             ->whereIn('id', $mostPlayedGames_id)
             ->get();
 
-        if ($this->search) {
-            $this->game_searched = Game::where('name', 'like', '%' . $this->search . '%')->with(['genres' => ['*'], 'cover' => ['*']])->limit(10)->get();
+        if ($this->search != "") {
+            $this->game_searched = Game::whereLike('name', $this->search, false)->get();
+        } else {
+            $this->game_searched = null;
         }
 
         return view('livewire.home');
     }
+
+
 }

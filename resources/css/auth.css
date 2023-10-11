@@ -87,7 +87,10 @@
     color: #4B5563;
 }
 
-.login-password{
+.login-password, 
+.register-email,
+.register-password
+{
     margin-top: 1rem;
 }
 

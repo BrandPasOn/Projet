@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Meats | @yield('title')</title>
 
 
 
     <!-- Scripts -->
-    @vite(['resources/css/error.css','resources/css/profile.css','resources/css/game.css', 'resources/css/contact.css', 'resources/css/footer.css', 'resources/css/layout.css', 'resources/css/navigation.css', 'resources/css/auth.css', 'resources/css/home-components.css', 'resources/css/app.css', 'resources/js/app.js', 'resources/js/alert.js'])
+    @vite(['resources/css/error.css','resources/css/profile.css','resources/css/game.css', 'resources/css/contact.css', 'resources/css/footer.css', 'resources/css/layout.css', 'resources/css/navigation.css', 'resources/css/auth.css', 'resources/css/home-components.css', 'resources/css/app.css', 'resources/js/app.js', 'resources/js/alert.js', 'resources/js/search.js', 'resources/js/username.js', 'resources/js/library.js'])
 
     @livewireStyles
 </head>
@@ -41,6 +41,9 @@
     </footer>
     @livewireScripts
     <script>
+        window.addEventListener('urlChanged', () => {
+            console.log('coucou')
+        })
         Livewire.on('urlChanged', function(url) {
             window.history.pushState({}, '', url);
         });

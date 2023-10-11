@@ -34,6 +34,7 @@ class LibraryComponent extends Component
 
     public $selectedGame;
 
+
     public function mount()
     {
         $this->user = Auth::user();
@@ -48,6 +49,9 @@ class LibraryComponent extends Component
 
     public function getLibraryGames()
     {
+        $this->user_favorite_games_id = [];
+        $this->user_games_id = [];
+        
         $this->user_games = UserGame::select('game_id')
             ->where('user_id', $this->user->id)
             ->where('is_favorite', false)
@@ -59,6 +63,7 @@ class LibraryComponent extends Component
         if (!empty($this->user_games_id)) {
             $this->games = Game::whereIn('id', $this->user_games_id)
                 ->with(['themes' => ['*'], 'cover' => ['*']])
+                ->orderBy('name')
                 ->get();
         }
 
@@ -74,6 +79,7 @@ class LibraryComponent extends Component
         if (!empty($this->user_favorite_games_id)) {
             $this->favorite_games = Game::whereIn('id', $this->user_favorite_games_id)
                 ->with(['themes' => ['*'], 'cover' => ['*']])
+                ->orderBy('name')
                 ->get();
         }
     }
@@ -96,6 +102,15 @@ class LibraryComponent extends Component
     public function showSelectGame()
     {
         $this->showGame(intval($this->selectedGame));
+    }
+
+    protected $listeners = ['loadLibraryGames' ];
+
+    public function loadLibraryGames()
+    {
+        
+        
+        $this->getLibraryGames();
     }
 
 }
