@@ -27,3 +27,8 @@ Pour démarrer le projet il faut suivre les étapes suivantes :
 étape 9 : php artisan serve
 
 étape 10 : npm run dev
+
+log admin :
+
+email: test@test.fr
+mdp = Azertyuiop12!
